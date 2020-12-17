@@ -10,17 +10,17 @@
 
 // EXAMPLE SOLUTION CODE:
 class Airplane {
-    constructor(name) {
-      this.name = name;
-      this.isFlying = false;
-    }
-    takeOff() {
-      this.isFlying = true;
-    }
-    land() {
-      this.isFlying = false;
-    }
+  constructor(name) {
+    this.name = name;
+    this.isFlying = false;
   }
+  takeOff() {
+    this.isFlying = true;
+  }
+  land() {
+    this.isFlying = false;
+  }
+}
   
   /*
   // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -41,9 +41,24 @@ class Airplane {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- class Person {
-    
+class Person {
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
   }
+  eat(food){
+    if (this.stomach.length < 10){
+      return this.stomach.push(food);
+    }
+  }
+  poop(){
+    return this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
+}
   
   /*
     TASK 2
@@ -59,9 +74,27 @@ class Airplane {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- class Car {
-    
+class Car {
+  constructor(model, mpg) {
+    this.model = model;
+    this.milesPerGallon = mpg;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  fill(gallons){
+    this.tank += gallons;
+  }
+  drive(distance){
+    this.odometer += distance;
+    this.tank -= distance / this.milesPerGallon;
+    if (this.tank < 0){
+      let toRestore = Math.abs(this.tank);
+      this.tank = 0;
+      this.odometer -= toRestore * this.milesPerGallon;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
+}
   
   /*
     TASK 3
@@ -111,7 +144,7 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
+ class Student extends Lambdasian{
      
  }
   
@@ -128,7 +161,7 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
+ class ProjectManager extends Instructor{
      
  }
   /*
